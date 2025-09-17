@@ -1,12 +1,12 @@
 import React from "react";
 
 const services = [
-  { title: "Food", icon: "service-icon-1.svg" },
-  { title: "Grocery", icon: "service-icon-2.svg" },
-  { title: "Furniture", icon: "service-icon-3.svg" },
-  { title: "Medicine", icon: "service-icon-4.svg" },
-  { title: "Electronics", icon: "service-icon-5.svg" },
-  { title: "Mensajero", icon: "service-icon-6.svg" }, // cambiado a Mensajero
+  { title: "Limpieza", description: "Servicios de limpieza para hogar y oficina, rápidos y confiables.", icon: "service-icon-1.svg" },
+  { title: "Electricista", description: "Reparaciones y mantenimientos eléctricos, instalación de enchufes y más.", icon: "service-icon-2.svg" },
+  { title: "Fontanero", description: "Soluciones de plomería: grifos, tuberías, desagües y fugas.", icon: "service-icon-3.svg" },
+  { title: "Jardinero", description: "Mantenimiento de jardines, corte de césped y cuidado de plantas.", icon: "service-icon-4.svg" },
+  { title: "Mensajero", description: "Entrega rápida de compras, medicamentos o cualquier encargo a tu puerta.", icon: "service-icon-5.svg" },
+  { title: "Carpintero", description: "Muebles, reparaciones y proyectos de madera a medida.", icon: "service-icon-6.svg" },
 ];
 
 const Services = () => (
@@ -14,8 +14,8 @@ const Services = () => (
     <div className="container">
       <div className="row justify-content-center">
         <div className="col-xl-6 col-lg-8 text-center mb-70">
-          <span>Delivery Services</span>
-          <h1>All Essentials You Need</h1>
+          <span>Nuestros Servicios</span>
+          <h1>Todo lo que necesitas a un clic</h1>
         </div>
       </div>
       <div className="row">
@@ -27,7 +27,7 @@ const Services = () => (
               </div>
               <div className="content">
                 <h3>{s.title}</h3>
-                <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</p>
+                <p>{s.description}</p>
               </div>
             </div>
           </div>
@@ -38,3 +38,4 @@ const Services = () => (
 );
 
 export default Services;
+

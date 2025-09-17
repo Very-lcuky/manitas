@@ -1,85 +1,70 @@
-
 (function() {
-//===== Prealoder
-
-	window.onload = function () {
-		window.setTimeout(fadeout, 500);
-	}
-
-	function fadeout() {
-		document.querySelector('.preloader').style.opacity = '0';
-		document.querySelector('.preloader').style.display = 'none';
-	}
-
-
-    /*=====================================
-    Sticky
-    ======================================= */
+    //===== Sticky Header y Back To Top =====
     window.onscroll = function () {
-        var header_navbar = document.querySelector(".navbar-area");
-        var sticky = header_navbar.offsetTop;
-
-        if (window.pageYOffset > sticky) {
-            header_navbar.classList.add("sticky");
-        } else {
-            header_navbar.classList.remove("sticky");
+        const header_navbar = document.querySelector(".navbar-area");
+        if (header_navbar) {
+            const sticky = header_navbar.offsetTop;
+            if (window.pageYOffset > sticky) {
+                header_navbar.classList.add("sticky");
+            } else {
+                header_navbar.classList.remove("sticky");
+            }
         }
 
-
-
-        // show or hide the back-top-top button
-        var backToTo = document.querySelector(".scroll-top");
-        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-            backToTo.style.display = "flex";
-        } else {
-            backToTo.style.display = "none";
+        const backToTop = document.querySelector(".back-to-top");
+        if (backToTop) {
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                backToTop.style.display = "flex";
+            } else {
+                backToTop.style.display = "none";
+            }
         }
     };
 
-    // Get the navbar
-
-
-    // for menu scroll 
-    var pageLink = document.querySelectorAll('.page-scroll');
-    
-    pageLink.forEach(elem => {
+    //===== Smooth scroll para links con clase page-scroll =====
+    document.querySelectorAll('.page-scroll').forEach(elem => {
         elem.addEventListener('click', e => {
             e.preventDefault();
-            document.querySelector(elem.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth',
-                offsetTop: 1 - 60,
-            });
+            const target = document.querySelector(elem.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         });
     });
 
+    //===== Toggle navbar =====
+    const navbarToggler = document.querySelector(".navbar-toggler");
+    const navbarCollapse = document.querySelector(".navbar-collapse");
+    if (navbarToggler && navbarCollapse) {
+        navbarToggler.addEventListener('click', () => {
+            navbarToggler.classList.toggle("active");
+            navbarCollapse.classList.toggle('show');
+        });
 
-    //===== close navbar-collapse when a  clicked
-    let navbarToggler = document.querySelector(".navbar-toggler");    
-    var navbarCollapse = document.querySelector(".navbar-collapse");
+        document.querySelectorAll(".page-scroll").forEach(link =>
+            link.addEventListener("click", () => {
+                navbarToggler.classList.remove("active");
+                navbarCollapse.classList.remove('show');
+            })
+        );
+    }
 
-    document.querySelectorAll(".page-scroll").forEach(e =>
-        e.addEventListener("click", () => {
-            navbarToggler.classList.remove("active");
-            navbarCollapse.classList.remove('show')
-        })
-    );
-    navbarToggler.addEventListener('click', function() {
-        navbarToggler.classList.toggle("active");
-    }) 
+    //===== WOW.js Animations =====
+    if (typeof WOW === "function") {
+        new WOW().init();
+    }
 
-
-	// WOW active
-    new WOW().init();
-
-    
-    //====== counter up 
-    var cu = new counterUp({
-        start: 0,
-        duration: 2000,
-        intvalues: true,
-        interval: 100,
-        append: " ",
-    });
-    cu.start();
+    //===== Counter Up =====
+    if (typeof counterUp === "function") {
+        const cu = new counterUp({
+            start: 0,
+            duration: 2000,
+            intvalues: true,
+            interval: 100,
+            append: " ",
+        });
+        cu.start();
+    }
 
 })();
+

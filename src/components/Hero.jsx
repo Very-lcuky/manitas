@@ -6,14 +6,17 @@ const Hero = () => (
       <div className="row align-items-center">
         <div className="col-lg-6">
           <div className="hero-content">
-            <h1>You're Using <span>Free Lite Version</span></h1>
-            <p>Please, purchase full version of the template to remove footer credits, documentation and support.</p>
-            <a href="https://rebrand.ly/delivery-ud/" className="main-btn btn-hover">Purchase Now</a>
+            <h1>¡Tu <span>Manitas de Confianza</span> al Instante!</h1>
+            <p>Encuentra y contrata profesionales para limpieza, electricidad, fontanería, jardinería, mensajería y carpintería.</p>
+            {/* Botón de descarga */}
+            <a href="/downloads/mi-app.apk" className="main-btn btn-hover" download>
+              Descargar App
+            </a>
           </div>
         </div>
         <div className="col-lg-6">
           <div className="hero-img">
-            <img src="assets/img/hero/hero-img.jpg" alt="Hero" />
+            <img src="assets/img/hero/hero-img.jpg" alt="Manitas" />
           </div>
         </div>
       </div>
@@ -22,3 +25,4 @@ const Hero = () => (
 );
 
 export default Hero;
+

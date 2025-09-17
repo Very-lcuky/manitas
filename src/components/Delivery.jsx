@@ -5,12 +5,20 @@ const Delivery = () => (
     <div className="container">
       <div className="row align-items-center">
         <div className="col-lg-5">
-          <h1>Order Now, Receive Within 30mins</h1>
-          <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt.</p>
-          <a href="#" className="main-btn btn-hover">Download App</a>
+          <h1>Pide Ahora, Recibe en 30 Minutos</h1>
+          <p>
+            Nuestros mensajeros llevan tus compras, medicamentos o cualquier encargo 
+            directamente a tu puerta de manera rápida y confiable.
+          </p>
+          <a href="#" className="main-btn btn-hover">
+            Descargar App
+          </a>
         </div>
         <div className="col-lg-7">
-          <img src="assets/img/delivery/delivery-img.jpg" alt="Delivery" />
+          <img
+            src="assets/img/delivery/delivery-img.jpg"
+            alt="Entrega Rápida"
+          />
         </div>
       </div>
     </div>
@@ -18,3 +26,4 @@ const Delivery = () => (
 );
 
 export default Delivery;
+
